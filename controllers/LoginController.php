@@ -24,7 +24,12 @@ class LoginController {
         echo 'desde resetPassword';
     }
     
-    public static function crear() {
-        echo 'desde crear cuenta';
+    public static function crear(Router $router) {
+        
+        
+        
+        $router->render('/auth/crear-cuenta', [
+
+        ]);
     }
 }
