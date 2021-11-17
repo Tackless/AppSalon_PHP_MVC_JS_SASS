@@ -16,12 +16,12 @@ class LoginController {
         echo 'desde logout';
     }
     
-    public static function resetPassword() {
-        echo 'desde resetPassword';
-    }
-    
     public static function recoverPassword() {
         echo 'desde recoverPassword';
+    }
+    
+    public static function resetPassword() {
+        echo 'desde resetPassword';
     }
     
     public static function crear() {

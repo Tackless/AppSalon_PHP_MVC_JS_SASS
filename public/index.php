@@ -13,10 +13,10 @@ $router->post('/', [LoginController::class, 'login']);
 $router->get('/logout', [LoginController::class, 'logout']);
 
 // Recuperar Password
-$router->get('/resetPassword', [LoginController::class, 'resetPassword']);
-$router->post('/resetPassword', [LoginController::class, 'resetPassword']);
 $router->get('/recoverPassword', [LoginController::class, 'recoverPassword']);
 $router->post('/recoverPassword', [LoginController::class, 'recoverPassword']);
+$router->get('/resetPassword', [LoginController::class, 'resetPassword']);
+$router->post('/resetPassword', [LoginController::class, 'resetPassword']);
 
 // Crear cuenta
 $router->get('/crear-cuenta', [LoginController::class, 'crear']);
