@@ -30,12 +30,11 @@ function css() {
         .pipe( dest('public/build/css') );
 }
 
-
 function javascript() {
     return src(paths.js)
-      .pipe(terser())
-      .pipe(sourcemaps.write('.'))
-      .pipe(dest('public/build/js'));
+        .pipe(terser())
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('public/build/js'));
 }
 
 function imagenes() {
@@ -52,14 +51,13 @@ function versionWebp() {
         .pipe(notify({ message: 'Imagen Completada'}));
 }
 
-
 function watchArchivos() {
     watch( paths.scss, css );
     watch( paths.js, javascript );
     watch( paths.imagenes, imagenes );
     watch( paths.imagenes, versionWebp );
 }
-  
+
 exports.css = css;
 exports.watchArchivos = watchArchivos;
 exports.default = parallel(css, javascript,  imagenes, versionWebp,  watchArchivos ); 

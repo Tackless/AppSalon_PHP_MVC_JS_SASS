@@ -1,12 +1,12 @@
 {
   "name": "app-salon-php-mvc-sass-s",
   "version": "1.0.0",
-  "description": "",
+  "description": "Practtice MVC, php, SASS",
   "main": "index.js",
   "scripts": {
     "gulp": "gulp"
   },
-  "author": "",
+  "author": "Donovan Eliosa",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.13",
@@ -26,5 +26,19 @@
     "gulp-webp": "^4.0.1",
     "sass": "^1.41.1",
     "terser": "^5.3.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tackless/AppSalon_PHP_MVC_JS_SASS.git"
+  },
+  "keywords": [
+    "MVC",
+    "GULP",
+    "SASS",
+    "PHP"
+  ],
+  "bugs": {
+    "url": "https://github.com/Tackless/AppSalon_PHP_MVC_JS_SASS/issues"
+  },
+  "homepage": "https://github.com/Tackless/AppSalon_PHP_MVC_JS_SASS#readme"
 }
