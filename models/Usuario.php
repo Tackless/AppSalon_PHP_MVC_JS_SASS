@@ -30,5 +30,17 @@ class Usuario extends ActiveRecord {
         $this->token = $args['token'] ?? '';
     }
 
+    // Mensajes de validación para la creación de la cuenta
+    public function validarNuevaCuenta() {
+        if (!$this->nombre) {
+            self::$alertas['error'][] = 'El Nombre del Usuario es Obligatorio';
+        }
+        
+        if (!$this->apellido) {
+            self::$alertas['error'][] = 'El Apellido del Usuario es Obligatorio';
+        }
+
+        return self::$alertas;
+    }
     
 }
