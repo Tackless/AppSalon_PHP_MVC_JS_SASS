@@ -89,8 +89,9 @@ class LoginController {
         ]);
     }
     
-    public static function resetPassword() {
-        echo 'desde resetPassword';
+    public static function resetPassword(Router $router) {
+        
+        $router->render('auth/resetPassword', []);
     }
     
     public static function crear(Router $router) {
