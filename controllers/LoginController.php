@@ -54,9 +54,20 @@ class LoginController {
     }
     
     public static function recoverPassword(Router $router) {
-        
-        $router->render('/auth/recoverPassword', [
 
+        $alertas = [];
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $auth = new Usuario($_POST);
+            $alertas = $auth->validarEmail();
+
+            if (empty($alertas)) {
+                
+            }
+        }
+
+        $router->render('/auth/recoverPassword', [
+            'alertas' => $alertas
         ]);
     }
     
