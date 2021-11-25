@@ -12,16 +12,29 @@ class LoginController {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
-
             $alertas = $auth->validarLogin();
-
             if (empty($alertas)) {
                 $usuario = Usuario::where('email', $auth->email);
-
                 if ($usuario) {
                     // Verificar el password
                     if ($usuario->comprobarPasswordAndConfirmado($auth->password)) {
-                        
+                        // Autenticar el usuario
+                        if(!isset($_SESSION)) {
+                            session_start();
+                        };
+
+                        $_SESSION['id'] = $usuario->id;
+                        $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
+                        $_SESSION['email'] = $usuario->email;
+                        $_SESSION['login'] = true;
+
+                        // Redireccionar
+                        if ($usuario->admin === '1') {
+                            $_SESSION['admin'] = $usuario->admin ?? null;
+                            header('location: /admin');
+                        } else {
+                            header('location: /cita');
+                        }
                     }
                 } else {
                     Usuario::setAlerta('error', 'Usuario no encontrado');
