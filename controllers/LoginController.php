@@ -91,7 +91,29 @@ class LoginController {
     
     public static function resetPassword(Router $router) {
         
-        $router->render('auth/resetPassword', []);
+        $alertas = [];
+        $error = false;
+
+        $token = s($_GET['token']);
+        
+        // Buscar usuario por token
+        $usuario = Usuario::where('token', $token);
+
+        if (empty($usuario)) {
+            Usuario::setAlerta('error', 'Token No Válido');
+            $error = true;
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Leer el nuevo password 
+            
+        }
+        $alertas = Usuario::getAlertas();
+
+        $router->render('auth/resetPassword', [
+            'alertas' => $alertas, 
+            'error' => $error
+        ]);
     }
     
     public static function crear(Router $router) {
