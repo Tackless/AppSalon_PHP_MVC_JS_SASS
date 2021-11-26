@@ -1,0 +1,13 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.seccion {
+    .text-center {
+        text-align: center;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+        display: none;
+    }
+}
