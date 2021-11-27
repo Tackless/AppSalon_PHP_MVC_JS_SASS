@@ -9,7 +9,17 @@ function iniciarApp() {
 };
 
 function mostrarSeccion() {
-    
+
+    // Ocultar la seccion que tenga la clase de mostrar
+    const seccionAnterior = document.querySelector('.mostrar');
+    if (seccionAnterior) {
+        seccionAnterior.classList.remove('mostrar');
+    }
+
+    // Seleccionar la seccion con el paso...
+    const pasoSelector = `#paso-${paso}`;
+    const seccion = document.querySelector(pasoSelector);
+    seccion.classList.add('mostrar');
 }
 
 function tabs() {

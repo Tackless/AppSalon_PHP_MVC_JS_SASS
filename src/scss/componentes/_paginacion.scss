@@ -4,7 +4,7 @@
 .paginacion {
     padding: v.$separacion 0;
 
-    @include m.telefono {
+    @include m.tablet {
         display: flex;
         justify-content: space-between;
     } 
