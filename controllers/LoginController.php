@@ -50,7 +50,12 @@ class LoginController {
     }
     
     public static function logout() {
-        echo 'desde logout';
+        
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $_SESSION = [];
+        header('location: /');
     }
     
     public static function recoverPassword(Router $router) {
