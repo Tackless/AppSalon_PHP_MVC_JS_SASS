@@ -32,6 +32,7 @@
                 <label for="hora">Hora</label>
                 <input type="time" id="hora">
             </div>
+            <input type="hidden" name="" id="id" value="<?php echo $id; ?>">
         </form>
     </div>
 

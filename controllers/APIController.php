@@ -17,7 +17,7 @@ class APIController {
         
         $cita = new Cita($_POST);
 
-        $resultado = $cita = $cita->guardar();
+        $resultado = $cita->guardar();
         echo json_encode($resultado);
     }
 }
