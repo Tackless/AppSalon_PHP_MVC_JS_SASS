@@ -324,7 +324,7 @@ async function reservarCita() {
             }).then( () => {
                 setTimeout(() => {
                     window.location.reload();    
-                }, 3000);
+                }, 1500);
             });
         }
     } catch (error) {
