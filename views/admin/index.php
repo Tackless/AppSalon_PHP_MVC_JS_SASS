@@ -33,7 +33,6 @@
             endif; 
         ?>
             <p class="servicio"><?php echo $cita->servicio . ' $' . $cita->precio; ?></p>
-        </li>
         <?php endforeach; ?>
     </ul>
 </div>
