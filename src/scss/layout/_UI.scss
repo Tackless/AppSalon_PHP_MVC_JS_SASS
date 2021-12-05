@@ -21,6 +21,9 @@
         width: 95%;
         margin: 0 auto;
         padding: 3rem;
+        @include m.tablet {
+            overflow: scroll;
+        } 
     }
 }
 
