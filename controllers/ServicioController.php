@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Model\Servicio;
 use MVC\Router;
+use Serializable;
 
 class ServicioController {
     public static function index(Router $router) {
@@ -11,6 +12,8 @@ class ServicioController {
         if (!isset($_SESSION)) {
             session_start();
         }
+
+        isAdmin();
 
         $servicios = Servicio::all();
 
@@ -27,6 +30,7 @@ class ServicioController {
         if (!isset($_SESSION)) {
             session_start();
         }
+        isAdmin();
 
         $servicio = new Servicio;
         $alertas = [];
@@ -55,6 +59,7 @@ class ServicioController {
         if (!isset($_SESSION)) {
             session_start();
         }
+        isAdmin();
 
         $id = is_numeric($_GET['id']);
         if (!$id) {
@@ -62,6 +67,10 @@ class ServicioController {
             return;
         }
         $servicio = Servicio::find($_GET['id']);
+        if (!$servicio) {
+            header('location: /servicios');
+            return;
+        }
         $alertas = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -84,9 +93,19 @@ class ServicioController {
     }
     
     public static function eliminar(Router $router) {
+
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        isAdmin();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+            $id = $_POST['id'];
+            $servicio = Servicio::find($id);
+
+            $servicio->eliminar();
+            header('location: /servicios');
         }
 
         
